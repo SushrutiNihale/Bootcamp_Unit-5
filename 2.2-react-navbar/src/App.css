@@ -1,0 +1,40 @@
+.App {
+  text-align: center;
+  color: snow;
+}
+
+nav {
+  width: 70vw;
+  margin: 1em auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2em 3em;
+  background-color: blue;
+  border-radius: 0.1em;
+}
+
+nav > img {
+  width: 50px;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  margin: auto;
+  padding: 0;
+}
+
+.options {
+  padding: 1em;
+}
+
+button {
+  border-radius: 0.1em;
+  background-color: teal;
+  color: snow;
+  box-sizing: none;
+  border: none;
+  border-radius: 1em;
+  padding: 0.5em 1em;
+}
