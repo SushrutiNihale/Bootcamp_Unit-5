@@ -19,6 +19,7 @@ const Comp = (props) => {
     <div>
       <h3>{props.title}</h3>
       <ul>
+        {/* iterating over items array to add to list */}
         {props.items.map((e) => {
           return <li>{e}</li>
         })}
