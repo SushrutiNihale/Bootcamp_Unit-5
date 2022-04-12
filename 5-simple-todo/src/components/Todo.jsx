@@ -1,30 +1,42 @@
 import { useState } from "react"
 import { ToDoList } from "./TodoList"
 import {nanoid} from "nanoid";
+import "./Todo.css"
 
 const Todo = () => {
     const [TodoData, setTodoData] = useState([]);
     const getData = (id) => {
         const data = document.getElementById(id).value;
+        document.getElementById(id).value = "";
         setTodoData([...TodoData,
             {
                 title: data,
-                status: "Not dine",
+                status: false,
                 id: nanoid(5)
             }
         ]);
     }
     const toggle = (id) => {
         setTodoData([
-            ...TodoData.map((e) => (e.id === id ? {...e, status: "Done"} : e))
+            ...TodoData.map((e) => {
+                return (e.id === id ? {...e, status: !e.status} : e)
+                // if (e.id === id) {
+                //     e.status = "Done"
+                // }
+                // return e;
+            })
+            // ...TodoData.map((e) =>
+            // (e.id === id ? {...e, status: "Done"} : e))
         ])
     }
 
     return (
         <>
-            <input id="user-input" type="text" placeholder="Enter note here"></input>
-            <button onClick={() => {getData("user-input")}}>Add</button>
             <ToDoList data={TodoData} toggle={toggle}/>
+            <div id="input-div">
+                <input id="user-input" type="text" placeholder="Write Something"></input>
+                <button onClick={() => {getData("user-input")}}>+</button>
+            </div>
         </>
     )
 }

@@ -2,11 +2,11 @@ import { TodoItem } from "./TodoItem"
 
 const ToDoList = (props) => {
     return (
-        <div>
+        <ul className="todo-list">
             {props.data.map((e) => {
                 return <TodoItem data={e} toggle={props.toggle} />
             })}
-        </div>
+        </ul>
     )
 }
 
