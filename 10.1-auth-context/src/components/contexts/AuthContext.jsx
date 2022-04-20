@@ -31,11 +31,11 @@ const AuthContextProvider = ({ children }) => {
             .then(res => res.json())
             .then(data => {
                 setIsAuth(true);
-                setToken(data);
+                setToken(data.token);
             });
     }
 
-    return <AuthContext.Provider value={{ IsAuth, toggleAuth }}>{children}</ AuthContext.Provider>
+    return <AuthContext.Provider value={{ IsAuth, toggleAuth, token }}>{children}</ AuthContext.Provider>
 }
 
 export { AuthContext, AuthContextProvider }

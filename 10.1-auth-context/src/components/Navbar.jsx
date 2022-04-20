@@ -6,7 +6,7 @@ const Navbar = () => {
     // console.log(IsAuth, toggleAuth);
     return (
         <nav>
-            <li>
+            <li style={{ listStyleType: "none" }}>
                 <button onClick={toggleAuth}>
                     {IsAuth ? "Log Out" : "Log In"}
                 </button>
