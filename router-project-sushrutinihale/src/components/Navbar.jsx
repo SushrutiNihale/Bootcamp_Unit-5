@@ -1,8 +1,8 @@
-import "./Navbar.css"
+import "./Homepage.css"
 
 const Navbar = () => {
     return (
-        <nav>
+        <nav className="navbar">
             <img src="http://assets.stickpng.com/images/58482f8fcef1014c0b5e4a85.png" alt="logo"></img>
             <li>Category 1</li>
             <li>Category 2</li>
