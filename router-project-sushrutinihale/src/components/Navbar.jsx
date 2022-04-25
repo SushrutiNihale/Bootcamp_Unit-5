@@ -1,16 +1,29 @@
-import "./Homepage.css"
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContext } from './contexts/AuthContext';
 
-const Navbar = () => {
+export const Navbar = () => {
+    const { IsAuth } = useContext(AuthContext);
     return (
-        <nav className="navbar">
-            <img src="http://assets.stickpng.com/images/58482f8fcef1014c0b5e4a85.png" alt="logo"></img>
-            <li>Category 1</li>
-            <li>Category 2</li>
-            <li>Category 3</li>
-            <li>Category 4</li>
-            <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="cart"></img>
-        </nav>
-    )
-}
-
-export { Navbar }
+        <div className="navbar">
+            <Link className="nav-home" to="/">
+                Home
+            </Link>
+            <Link className="nav-list" to="/employees">
+                Employee List
+            </Link>
+            <Link className="nav-admin" to="/admin">
+                Admin
+            </Link>
+            {/* Show Either logout or login based on auth context. DO NOT show both */}
+            {IsAuth ?
+                <Link className="nav-logout" to="/logout">
+                    Logout
+                </Link>
+                :
+                <Link className="nav-login" to="/login">
+                    Login
+                </Link>}
+        </div>
+    );
+};

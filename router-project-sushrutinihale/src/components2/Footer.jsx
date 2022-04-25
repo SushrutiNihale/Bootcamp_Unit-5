@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Homepage.css';
 
 const Footer = () => {
@@ -6,13 +7,13 @@ const Footer = () => {
             <div>
                 <ul className='footer-list'>
                     <li>BRAND INFO</li>
-                    <li>About</li>
-                    <li>Contact</li>
+                    <li><Link to={"/about"}>About</Link></li>
+                    <li><Link to={"/contact"}>Contact</Link></li>
                     <li>Journal</li>
                     <li>Shipping</li>
                     <li>Returns | Exchanges | Refunds</li>
                     <li>Repairs | Warranty Info</li>
-                    <li>FAQ</li>
+                    <li><Link to={"/faq"}>FAQ</Link></li>
                     <li>Opportunities</li>
                     <li>Wholesale</li>
                     <li>Privacy Policy</li>

@@ -1,4 +1,4 @@
-const Products = () => {
+const Store = () => {
     return (
         <div>
             <p>cat 1</p>
@@ -9,4 +9,4 @@ const Products = () => {
     )
 }
 
-export { Products }
+export { Store }
