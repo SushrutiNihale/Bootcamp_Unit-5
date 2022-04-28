@@ -10,5 +10,5 @@ const store = createStore(reducer, initState);
 export { store, reducer };
 
 store.subscribe(() => {
-    console.log("subscribe: ", store.getState());
+    console.log("subscribe: ", store.getState().todos[0]);
 })

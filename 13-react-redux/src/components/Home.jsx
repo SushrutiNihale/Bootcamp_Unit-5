@@ -1,9 +1,8 @@
-// import { store } from '../Redux/store';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addTodo } from '../Redux/actions';
 import { useNavigate } from 'react-router-dom'
-// import { Navigate } from 'react-router-dom';
+import './Home.css';
 
 export const Home = () => {
     const dispatch = useDispatch();
@@ -30,6 +29,7 @@ export const Home = () => {
             {todos.map((e) => {
                 return (
                     <div
+                        className={e.status ? "todo-done" : "todo-notdone"}
                         onClick={gotoTodo}
                         key={e.id}
                         id={e.id}>
