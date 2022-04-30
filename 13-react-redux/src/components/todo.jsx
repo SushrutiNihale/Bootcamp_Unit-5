@@ -4,9 +4,19 @@ import { toggleTodo } from '../Redux/actions';
 
 export const Todo = () => {
     const id = useParams().id;
-    const todo = useSelector((store) => {
-        return store.todos.find(e => e.id === id);
-    });
+    const { todos } = useSelector(
+
+        store => store,
+        (pre, curr) => {
+            // if (pre.status === curr.status) {
+            //     console.log(`status is changed in UI`)
+            // }
+            console.log(pre, curr);
+            return false;
+        }
+    );
+
+    const todo = todos.find(e => e.id === id);
 
     const dispatch = useDispatch();
 
