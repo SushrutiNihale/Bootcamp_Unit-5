@@ -9,7 +9,7 @@ const store = createStore(
 export { store, reducer };
 
 store.subscribe(() => {
-    console.log("subscribe: ", store.getState().todos[0]);
+    console.log("subscribe: ", store.getState());
 })
 
 console.log(store.getState())

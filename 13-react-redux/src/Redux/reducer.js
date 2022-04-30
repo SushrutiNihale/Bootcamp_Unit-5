@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO } from './actions';
+import { ADD_TODO, TOGGLE_TODO, DELETE_TODO } from './actions';
 import { nanoid } from 'nanoid';
 
 const initState = {
@@ -6,33 +6,37 @@ const initState = {
 };
 
 export const reducer = (store = initState, action) => {
-    if (action.type === ADD_TODO) {
-        return {
-            ...store,
-            todos: [
-                ...store.todos,
-                { title: action.payload, status: false, id: nanoid() }
-            ]
-        }
+    switch (action.type) {
+        case ADD_TODO:
+            return {
+                ...store,
+                todos: [
+                    ...store.todos,
+                    { title: action.payload, status: false, id: nanoid() }
+                ]
+            };
+        case TOGGLE_TODO:
+            const id = action.payload;
+            return ({
+                ...store,
+                todos: [
+                    ...store.todos.map((e) => {
+                        if (e.id === id) {
+                            e.status = !e.status;
+                            return e;
+                        }
+                        return e;
+                    })
+                ]
+            });
+        case DELETE_TODO:
+            return ({
+                ...store,
+                todos: [
+                    ...store.todos.filter(e => e.id !== action.payload)
+                ]
+            })
+        default:
+            return store;
     }
-    if (action.type === TOGGLE_TODO) {
-        const id = action.payload;
-        const updatedStatus = !store.todos.find(e => e.id === id).status;
-        return ({
-            ...store,
-            todos: [
-                ...store.todos,
-                store.todos.find(e => e.id === id).status = updatedStatus
-            ]
-        })
-
-        // below code is wrong since store is immutable!!
-        // if (store.todos.find(e => e.id === id).status) {
-        //     store.todos.find(e => e.id === id).status = false;
-        // } else {
-        //     store.todos.find(e => e.id === id).status = true;
-        // }
-        // return store;
-    }
-    return store;
 };
