@@ -1,21 +1,11 @@
-import { CHECK_USER_STATUS, ADD_TODO, TOGGLE_TODO, DELETE_TODO } from "./actions";
+import { ADD_TODO, TOGGLE_TODO, DELETE_TODO } from "./actions";
 import { nanoid } from 'nanoid';
 
 const initState = {
-    isLoggedIn: false,
     todos: []
 };
-export const reducer = (store = initState, action) => {
+export const todoReducer = (store = initState, action) => {
     switch (action.type) {
-        case CHECK_USER_STATUS:
-            if (action.payload !== null) {
-                // if authToken exists in local storage
-                return {
-                    ...store,
-                    isLoggedIn: true
-                }
-            }
-            return store;
         case ADD_TODO:
             return {
                 ...store,

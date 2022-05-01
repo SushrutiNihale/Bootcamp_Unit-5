@@ -2,7 +2,7 @@ import { Login } from './components/Login';
 import './App.css';
 import { Home } from './components/Home';
 import { Route, Routes } from 'react-router-dom';
-import { checkUserStatus } from './Redux/actions';
+import { checkUserStatus } from './Redux/auth/actions';
 import { useDispatch } from 'react-redux';
 import { Private } from './components/Private';
 import { Todo } from './components/Todo';

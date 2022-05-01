@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTodo, deleteTodo } from '../Redux/actions';
+import { addTodo, deleteTodo } from '../Redux/todo/actions';
 import { useNavigate } from 'react-router-dom'
 import './Home.css';
 
 export const Home = () => {
     const dispatch = useDispatch();
-    const todos = useSelector(store => store.todos);
+    const todos = useSelector(store => store.todos.todos);
 
     const [Input, setInput] = useState();
     const handleChange = (e) => {

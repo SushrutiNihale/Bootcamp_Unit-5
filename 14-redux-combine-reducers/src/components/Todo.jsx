@@ -1,20 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { toggleTodo } from '../Redux/actions';
+import { toggleTodo } from '../Redux/todo/actions';
 
 export const Todo = () => {
     const id = useParams().id;
-    const { todos } = useSelector(
-
-        store => store,
-        (pre, curr) => {
-            // if (pre.status === curr.status) {
-            //     console.log(`status is changed in UI`)
-            // }
-            console.log(pre, curr);
-            return false;
-        }
-    );
+    const todos = useSelector(store => store.todos.todos);
 
     const todo = todos.find(e => e.id === id);
 

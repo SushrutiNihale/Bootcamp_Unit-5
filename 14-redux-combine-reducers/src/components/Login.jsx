@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { checkUserStatus } from "../Redux/actions";
+import { checkUserStatus } from "../Redux/auth/actions";
 import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
